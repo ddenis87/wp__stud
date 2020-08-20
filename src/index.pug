@@ -1,0 +1,46 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Document
+    include index-components.pug
+  body
+    h1 Webpack and pug
+    div 
+      +toggle({id: 'specOffer', text: 'Получать спецпредложения', isChecked: true})
+      +toggle({id: 'specOffer-sec', text: 'Получать спецпредложения'})
+      +toggle({text: 'Получать спецпредложения'})
+    hr
+    +text-field({id: 'email', title: 'Email', placeholder: 'Email'})
+    br
+    +text-field({placeholder: 'Phone', type: 'password'})
+    hr
+    div
+      button(id='getDropdown') Get value Dropdown
+    br
+    +dropdown(
+      { 
+        id: 'propsRoom',
+        item: [
+          {id: 'bedrooms', title: 'Спальни', defaultValue: 2},
+          {id: 'beds', title: 'Кровати', defaultValue: 2},
+          {id: 'bathrooms', title: 'Ванные комнаты'},
+        ],
+      }
+    )
+    br
+    hr
+    +dropdown(
+      { 
+        id: 'propsGuest',
+        item: [
+          {id: 'men', title: 'Взрослые', defaultValue: 2},
+          {id: 'child', title: 'Дети', defaultValue: 2},
+          {id: 'mlad', title: 'Младенцы'},
+        ],
+        width: '300px'
+      }
+    )
+    br
+    hr

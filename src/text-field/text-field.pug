@@ -1,0 +1,12 @@
+// - option = {id, title, placeholder, type[default: text]}
+mixin text-field(option)
+  - let inputType = 'text'
+  - if ('type' in option) inputType = option.type
+  .text-field
+    if ('title' in option)
+      span.text-field__title= option.title
+    input.text-field__input(
+      type= inputType, 
+      id= option.id, 
+      placeholder= option.placeholder
+    )
