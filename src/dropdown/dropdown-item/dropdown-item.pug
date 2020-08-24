@@ -1,8 +1,0 @@
-mixin dropdown-item(option)
-  .dropdown-item(id= '' + option.id)
-    .dropdown-item__title
-      span= option.title
-    .dropdown-item__control
-      div.control__button(id= 'buttonDecrement') -
-      span.control__value(id= option.id + 'Value')= ('defaultValue' in option) ? option.defaultValue : 0
-      div.control__button(id= 'buttonIncrement') +

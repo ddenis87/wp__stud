@@ -30,6 +30,9 @@
     font-size: 14px;
     line-height: 24px;
     letter-spacing: -0.1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     color: rgba(31, 32, 65, 0.75);
   }
   &__button {
@@ -42,7 +45,7 @@
       background-color: lightblue;
     }
   }
-  &__items {
+  &__slider {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -50,8 +53,6 @@
     height: 0px;
     padding-left: 14px;
     padding-right: 6px;
-    // padding-top: 1px;
-    // padding-bottom: 5px;
     border: 1px solid rgba(31, 32, 65, 0.25);
     border-top: 0px;
     border-radius: 0px 0px 3.5px 3.5px;
@@ -59,25 +60,15 @@
     overflow: hidden;
     box-sizing: border-box;
     opacity: 0;
-    // z-index: -1;
     transition: opacity .4s, border .4s, height .1s;
   }
-  &__items-drop {
+  &__slider-drop {
     opacity: 1;
     height: auto;
-    // animation: a-opacity .4s, a-geometry .1s;
     padding-top: 1px;
     padding-bottom: 5px;
     border: 1px solid rgba(31, 32, 65, 0.5);
     border-top: 0px;
     z-index: 999;
   }
-  // @keyframes a-opacity {
-  //   0% { opacity: 0; }
-  //   100% { opacity: 1; }
-  // }
-  // @keyframes a-geometry {
-  //   0% { height: 0px; }
-  //   100% { height: auto; }
-  // }
 }

@@ -22,9 +22,10 @@ html(lang="en")
     +dropdown(
       { 
         id: 'propsRoom',
-        item: [
-          {id: 'bedrooms', title: 'Спальни', defaultValue: 2},
-          {id: 'beds', title: 'Кровати', defaultValue: 2},
+        type: 'props',
+        props: [
+          {id: 'bedrooms', title: 'Спальни'},
+          {id: 'beds', title: 'Кровати'},
           {id: 'bathrooms', title: 'Ванные комнаты'},
         ],
       }
@@ -34,12 +35,13 @@ html(lang="en")
     +dropdown(
       { 
         id: 'propsGuest',
-        item: [
+        type: 'props',
+        props: [
           {id: 'men', title: 'Взрослые', defaultValue: 2},
           {id: 'child', title: 'Дети', defaultValue: 2},
           {id: 'mlad', title: 'Младенцы'},
         ],
-        width: '300px'
+        width: '250px'
       }
     )
     br

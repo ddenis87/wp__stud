@@ -1,11 +1,11 @@
 import './style.scss'
 import './toggle/toggle'
 import './text-field/text-field'
-import Dropdown from './dropdown/dropdown'
+import DropdownProps from './dropdown/dropdown-props'
 
 console.log('Hello from index.js');
 
-let roomDropdown = new Dropdown(
+let roomDropdown = new DropdownProps(
   'propsRoom', 
   {
     titleType: 'text', 
@@ -13,14 +13,22 @@ let roomDropdown = new Dropdown(
       ['спальня','спальни','спален'],
       ['кровать','кровати','кроватей'],
       ['ванная комната','ванные комнаты','ванных комнат'],
-    ]
+    ],
+    propsValueDefault: [2,5,1],
+    propsValueLimit: [[1,5],[1,7],[0,2]]
+  }
+);
+
+let guestDropdown = new DropdownProps(
+  'propsGuest', 
+  {
+    titleType: 'sum', 
+    titleMask: [['гость','гостя','гостей']],
+    propsValueDefault: [0,0,0],
+    propsValueLimit: [[0,5],[0,7],[0,2]]
   }
 ); // -- class Dropdown(id - dropdown element)
-let guestDropdown = new Dropdown('propsGuest', {titleType: 'sum', titleMask: ['гость','гостя','гостей']}); // -- class Dropdown(id - dropdown element)
 
 document.getElementById('getDropdown').addEventListener('click', () => {
   console.log(roomDropdown.getValue());
- 
 })
-
-console.log(roomDropdown);

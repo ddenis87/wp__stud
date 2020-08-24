@@ -1,11 +1,14 @@
-include dropdown-item/dropdown-item.pug
+//- include dropdown-item/dropdown-item.pug
 mixin dropdown(option)
   .dropdown(id= option.id, tabindex= 0, style="width: " + option.width)
     .dropdown__box(id= option.id + 'Box')
-      span.dropdown__title(id= option.id + 'Title') 2 спальни, 2 кровати...
+      span.dropdown__title(id= option.id + 'Title')
       div.dropdown__button(id= option.id + 'Button')
         svg(width="12", height="8", viewBox="0 0 12 8", fill="none", xmlns="http://www.w3.org/2000/svg")
           path(d="M10.5938 0.578125L12 1.98438L6 7.98438L0 1.98438L1.40625 0.578125L6 5.17188L10.5938 0.578125Z", fill="#1F2041", fill-opacity="0.75")
-    .dropdown__items(id= option.id + 'Items')
-      each item in option.item
-        +dropdown-item(item)
+    .dropdown__slider(id= option.id + 'Slider')
+      case option.type
+        when 'props'
+          include __item/dropdown-props__item.pug
+          each prop in option.props
+            +dropdown-props__item(prop)
