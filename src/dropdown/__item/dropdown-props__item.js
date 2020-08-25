@@ -10,13 +10,14 @@ export default class DropdownPropsItem {
     document.getElementById(this.id).addEventListener('click', () => { this.changePropsItem(event.target) });
     
     this.updateValue();
+    this.disabledControl();
   }
   changePropsItem(target) {
-    // console.log(target.id.slice(0, -9))
     switch(target.id.slice(-9)) {
       case 'Increment': this.value++; break;
       case 'Decrement': this.value--; break;
     }
+
     if ( this.value > this.valueLimit[0] && this.value < this.valueLimit[1]) {
       document.getElementById(target.id.slice(0, -9) + 'Increment').disabled = false;
       document.getElementById(target.id.slice(0, -9) + 'Decrement').disabled = false;
@@ -29,5 +30,19 @@ export default class DropdownPropsItem {
   }
   updateValue() {
     document.getElementById(this.id + 'Value').innerText = this.value;
+  }
+  disabledControl() {
+    switch(true) {
+      case (this.value == this.valueLimit[0]): {
+        document.getElementById(this.id + 'Increment').disabled = false;
+        document.getElementById(this.id + 'Decrement').disabled = true;
+        break;
+      }
+      case (this.value == this.valueLimit[1]): {
+        document.getElementById(this.id + 'Increment').disabled = true;
+        document.getElementById(this.id + 'Decrement').disabled = false;
+        break;
+      }
+    }
   }
 }

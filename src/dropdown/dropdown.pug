@@ -12,3 +12,7 @@ mixin dropdown(option)
           include __item/dropdown-props__item.pug
           each prop in option.props
             +dropdown-props__item(prop)
+      case option.control
+        when true
+          include __control/dropdown__control.pug
+          +dropdown__control(option.id)
