@@ -1,27 +1,33 @@
 import Dropdown from './Dropdown' // import base class
 import DropdownPropsItem from './__item/dropdown-props__item'
+import DropdownControl from './__control/dropdown__control';
+
 
 export default class DropdownProps extends Dropdown {
   constructor(idDropdown, option) {
-    super(idDropdown, option);
+    super(idDropdown);
     this.values = {'value': []}
     this.listPropsItem = [];
     let dropdownProps__item = document.querySelectorAll(`#${idDropdown}Slider .dropdown-props__item`);
     document.getElementById(idDropdown + 'Slider').addEventListener('click', () => this.updateTitle(option));
 
     for (let i = 0; i < dropdownProps__item.length; i++) {
-      let dropdownPropsItemClass = new DropdownPropsItem({
-        'id': dropdownProps__item[i].id, 
+      let dropdownPropsItem = new DropdownPropsItem({
+        'id': dropdownProps__item[i].id,
         'propsValueDefault' : option.propsValueDefault[i], 
         'propsValueLimit': option.propsValueLimit[i]
       });
-      this.listPropsItem.push({'id': dropdownProps__item[i].id, 'class': dropdownPropsItemClass});
+      this.listPropsItem.push({'id': dropdownProps__item[i].id, 'class': dropdownPropsItem});
     }
+    //-- control button -------------
+    if (option.control) this.dropdownControl = new DropdownControl(idDropdown, this.listPropsItem);
+    // ------------------------------
 
-    this.updateTitle(option);
-    this.dropdownDefault(option);
+    // this.updateTitle(option);
+    this.setDropdownDefault(option)
   }
   updateTitle(option) {
+    this.dropdownControl.enableClear();
     let title = '';
     if (option.titleType == 'sum') {
       let value = 0;
@@ -61,17 +67,11 @@ export default class DropdownProps extends Dropdown {
     document.getElementById(this.idDropdown + 'Title').innerText = title;
 
   }
-  dropdownDefault(option) {
-    for (let i = 0; i < this.listPropsItem.length; i++) {
-      this.listPropsItem[i].class.value = option.propsValueDefault[i];
-      this.listPropsItem[i].class.updateValue();
-      this.listPropsItem[i].class.disabledControl();
-    }
+  setDropdownDefault(option) {
+    this.dropdownControl.setDropdownDefault(this.listPropsItem);
     if ('titleDefault' in option) {
       document.getElementById(this.idDropdown + 'Title').innerText = option.titleDefault;
     }
-    // console.log(this.listPropsItem[0]);
-    
   }
   getValue() {
     this.values.value.length = 0;
