@@ -8,7 +8,6 @@
       height: 37px;
       border: 0px solid grey;
       box-sizing: border-box;
-      // background-color: green;
     }
     &__title {
       font-family: Montserrat;
@@ -21,7 +20,6 @@
     }
     &__control {
       display: inline-flex;
-      // width: 90px;
       .control {
         &__button{
           position: relative;
@@ -46,7 +44,7 @@
           cursor: pointer;
           outline: none;
           &_click { background-color: lightblue; }
-          &:disabled { opacity: 0.5; }
+          &:disabled { opacity: 0.5; cursor: default; }
         }
         &__value {
           display: flex;

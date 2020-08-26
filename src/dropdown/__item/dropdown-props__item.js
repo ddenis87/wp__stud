@@ -2,45 +2,53 @@ import './dropdown-props__item.scss';
 
 export default class DropdownPropsItem {
   constructor(option) {
-    this.id = option.id;
+    this.idPropsItem = option.id;
     this.value = option.propsValueDefault;
+    this.valueDefault = option.propsValueDefault;
     this.valueLimit = option.propsValueLimit;
 
-    document.getElementById(this.id).addEventListener('mousedown', () => { event.preventDefault() });
-    document.getElementById(this.id).addEventListener('click', () => { this.changePropsItem(event.target) });
+    document.getElementById(this.idPropsItem).addEventListener('mousedown', () => { event.preventDefault() });
+    document.getElementById(this.idPropsItem).addEventListener('click', () => { this.changeValue(event.target) });
     
-    this.updateValue();
-    this.disabledControl();
+    this.updateValueForm();
+    this.switchControl();
   }
-  changePropsItem(target) {
-    switch(target.id.slice(-9)) {
-      case 'Increment': this.value++; break;
-      case 'Decrement': this.value--; break;
+  changeValue(target) {
+    // console.log(this.idPropsItem + 'Increment')
+    // console.log(target.id)
+    switch(target.id) {
+      case this.idPropsItem + 'Increment': this.value++; break;
+      case this.idPropsItem + 'Decrement': this.value--; break;
     }
-
-    if ( this.value > this.valueLimit[0] && this.value < this.valueLimit[1]) {
-      document.getElementById(target.id.slice(0, -9) + 'Increment').disabled = false;
-      document.getElementById(target.id.slice(0, -9) + 'Decrement').disabled = false;
-    } else if (this.value == this.valueLimit[0]) {
-      document.getElementById(target.id.slice(0, -9) + 'Decrement').disabled = true;
-    } else if (this.value == this.valueLimit[1]) {
-      document.getElementById(target.id.slice(0, -9) + 'Increment').disabled = true;
-    }
-    this.updateValue();
+    this.updateValueForm();
+    this.switchControl()
   }
-  updateValue() {
-    document.getElementById(this.id + 'Value').innerText = this.value;
+  updateValueForm() {
+    document.getElementById(this.idPropsItem + 'Value').innerText = this.value;
   }
-  disabledControl() {
+  setValueDefault() {
+    this.value = this.valueDefault;
+    this.updateValueForm();
+    this.switchControl();
+  }
+  getValue() {
+    return this.value;
+  }
+  switchControl() {
     switch(true) {
+      case (this.value > this.valueLimit[0] && this.value < this.valueLimit[1]): {
+        document.getElementById(this.idPropsItem + 'Increment').disabled = false;
+        document.getElementById(this.idPropsItem + 'Decrement').disabled = false;
+        break;
+      }
       case (this.value == this.valueLimit[0]): {
-        document.getElementById(this.id + 'Increment').disabled = false;
-        document.getElementById(this.id + 'Decrement').disabled = true;
+        document.getElementById(this.idPropsItem + 'Increment').disabled = false;
+        document.getElementById(this.idPropsItem + 'Decrement').disabled = true;
         break;
       }
       case (this.value == this.valueLimit[1]): {
-        document.getElementById(this.id + 'Increment').disabled = true;
-        document.getElementById(this.id + 'Decrement').disabled = false;
+        document.getElementById(this.idPropsItem + 'Increment').disabled = true;
+        document.getElementById(this.idPropsItem + 'Decrement').disabled = false;
         break;
       }
     }
