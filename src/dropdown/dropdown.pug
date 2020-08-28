@@ -1,6 +1,7 @@
 //- include dropdown-item/dropdown-item.pug
 include __control/dropdown__control.pug
-mixin dropdown(option)
+mixin dropdown(dropdownName, option)
+  span.dropdown__name= dropdownName
   .dropdown(id= option.id, tabindex= 0, style="width: " + option.width)
     .dropdown__box(id= option.id + 'Box')
       span.dropdown__title(id= option.id + 'Title')

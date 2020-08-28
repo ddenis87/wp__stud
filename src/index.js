@@ -3,7 +3,7 @@ import './toggle/toggle'
 import './text-field/text-field'
 import DropdownProps from './dropdown/dropdown-props'
 
-console.log('Hello from index.js');
+// console.log('Hello from index.js');
 
 let roomDropdown = new DropdownProps(
   'propsRoom', 
@@ -19,7 +19,7 @@ let roomDropdown = new DropdownProps(
     control: false
   }
 );
-console.log(roomDropdown);
+// console.log(roomDropdown);
 
 let guestDropdown = new DropdownProps(
   'propsGuest', 
@@ -32,7 +32,7 @@ let guestDropdown = new DropdownProps(
     control: true
   }
 ); // -- class Dropdown(id - dropdown element)
-console.log(guestDropdown);
+// console.log(guestDropdown);
 
 document.getElementById('getDropdownRoom').addEventListener('click', () => {
   console.log(roomDropdown.getValue());

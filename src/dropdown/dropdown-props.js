@@ -28,6 +28,7 @@ export default class DropdownProps extends Dropdown {
     this.updateTitle();
     this.setDropdownDefault(option)
   }
+
   clickSlider(event) {
     if (event.target.id.slice(-9) == 'Increment' || event.target.id.slice(-9) == 'Decrement') {
       this.dropdownControl.enableClear();
@@ -39,6 +40,7 @@ export default class DropdownProps extends Dropdown {
       this.dropdownClose();
     }
   }
+
   updateTitle() {
     let title = '';
     switch(this.titleType) {
@@ -81,13 +83,14 @@ export default class DropdownProps extends Dropdown {
     }
     document.getElementById(this.idDropdown + 'Title').innerText = title;
   }
+
   setDropdownDefault(option) {
     this.dropdownControl.setDropdownDefault(this.listPropsItem);
     if ('titleDefault' in option) {
-      console.log('titile-default');
       document.getElementById(this.idDropdown + 'Title').innerText = option.titleDefault;
     }
   }
+
   getValue() {
     this.values.value.length = 0;
     for (let propsItem of this.listPropsItem) {
