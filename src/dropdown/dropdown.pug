@@ -1,4 +1,5 @@
 //- include dropdown-item/dropdown-item.pug
+include __control/dropdown__control.pug
 mixin dropdown(option)
   .dropdown(id= option.id, tabindex= 0, style="width: " + option.width)
     .dropdown__box(id= option.id + 'Box')
@@ -12,7 +13,4 @@ mixin dropdown(option)
           include __item/dropdown-props__item.pug
           each prop in option.props
             +dropdown-props__item(prop)
-      case option.control
-        when true
-          include __control/dropdown__control.pug
-          +dropdown__control(option.id)
+      +dropdown__control(option.id)

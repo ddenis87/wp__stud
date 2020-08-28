@@ -1,22 +1,12 @@
 import './dropdown.scss';
-import './__control/dropdown__control'
 
 export default class Dropdown {
-  constructor(idDropdown, option) {
+  constructor(idDropdown) {
     this.idDropdown = idDropdown;
     document.getElementById(idDropdown).addEventListener('blur', () => this.dropdownClose());
-    document.getElementById(idDropdown + 'Button').addEventListener('click', () => this.dropdownSwitching());
-    if (option.control) {
-      document.getElementById(idDropdown + 'Control').addEventListener('click', () => {
-        event.stopPropagation();
-        switch(event.target.id.slice(-5)) {
-          case 'Apply': this.dropdownClose(); break;
-          case 'Clear': this.dropdownDefault(option); break;
-        }
-      });
-    }
+    document.getElementById(idDropdown + 'Button').addEventListener('click', () => this.dropdownSwitch());
   }
-  dropdownSwitching() {
+  dropdownSwitch() {
     document.getElementById(this.idDropdown + 'Slider').classList.toggle('dropdown__slider-drop');
     document.getElementById(this.idDropdown + 'Box').classList.toggle('dropdown__box-drop');
   }

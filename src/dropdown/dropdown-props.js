@@ -6,10 +6,13 @@ import DropdownControl from './__control/dropdown__control';
 export default class DropdownProps extends Dropdown {
   constructor(idDropdown, option) {
     super(idDropdown);
+    this.titleType = option.titleType;
+    this.titleMask = option.titleMask;
+    if (option.titleDefault) { this.titleDefault = option.titleDefault; }
     this.values = {'value': []}
     this.listPropsItem = [];
     let dropdownProps__item = document.querySelectorAll(`#${idDropdown}Slider .dropdown-props__item`);
-    document.getElementById(idDropdown + 'Slider').addEventListener('click', () => this.updateTitle(option));
+    document.getElementById(idDropdown + 'Slider').addEventListener('click', () => this.clickSlider(event));
 
     for (let i = 0; i < dropdownProps__item.length; i++) {
       let dropdownPropsItem = new DropdownPropsItem({
@@ -19,57 +22,69 @@ export default class DropdownProps extends Dropdown {
       });
       this.listPropsItem.push({'id': dropdownProps__item[i].id, 'class': dropdownPropsItem});
     }
-    //-- control button -------------
-    if (option.control) this.dropdownControl = new DropdownControl(idDropdown, this.listPropsItem);
-    // ------------------------------
+    if (option.control == false) document.getElementById(idDropdown + 'Control').classList.add('dropdown__control_noneVisibility')
 
-    // this.updateTitle(option);
+    this.dropdownControl = new DropdownControl(idDropdown, this.listPropsItem);
+    this.updateTitle();
     this.setDropdownDefault(option)
   }
-  updateTitle(option) {
-    this.dropdownControl.enableClear();
+  clickSlider(event) {
+    if (event.target.id.slice(-9) == 'Increment' || event.target.id.slice(-9) == 'Decrement') {
+      this.dropdownControl.enableClear();
+      this.updateTitle();
+    } else if (event.target.id.slice(-5) == 'Clear') {
+      this.dropdownControl.setDropdownDefault(this.listPropsItem);
+      if (this.titleDefault) document.getElementById(this.idDropdown + 'Title').innerText = this.titleDefault;
+    } else if (event.target.id.slice(-5) == 'Apply') {
+      this.dropdownClose();
+    }
+  }
+  updateTitle() {
     let title = '';
-    if (option.titleType == 'sum') {
-      let value = 0;
-      for (let i = 0; i < this.listPropsItem.length; i++) {
-        value += this.listPropsItem[i].class.value;
+    switch(this.titleType) {
+      case 'text': {
+        for (let i = 0; i < this.listPropsItem.length; i++) {
+          let value = this.listPropsItem[i].class.value;
+          switch (true) {
+            case (value == 0):
+            case (value > 4):
+              title += value + ' ' + this.titleMask[i][2];
+              break;
+            case (value == 1):
+              title += value + ' ' + this.titleMask[i][0];
+              break;
+            case (1 < value < 5):
+              title += value + ' ' + this.titleMask[i][1];
+              break;
+          }
+          if (i < this.listPropsItem.length - 1) title += ', '
+        }
       }
-      switch (true) {
-        case (value == 0):
-        case (value > 4):
-          title += value + ' ' + option.titleMask[0][2];
-          break;
-        case (value == 1):
-          title += value + ' ' + option.titleMask[0][0];
-          break;
-        case (1 < value < 5):
-          title += value + ' ' + option.titleMask[0][1];
-          break;
-      }
-    } else if (option.titleType == 'text') {
-      for (let i = 0; i < this.listPropsItem.length; i++) {
-        let value = this.listPropsItem[i].class.value;
+      case 'sum': {
+        let value = 0;
+        for (let i = 0; i < this.listPropsItem.length; i++) {
+          value += this.listPropsItem[i].class.value;
+        }
         switch (true) {
           case (value == 0):
           case (value > 4):
-            title += value + ' ' + option.titleMask[i][2];
+            title += value + ' ' + this.titleMask[0][2];
             break;
           case (value == 1):
-            title += value + ' ' + option.titleMask[i][0];
+            title += value + ' ' + this.titleMask[0][0];
             break;
           case (1 < value < 5):
-            title += value + ' ' + option.titleMask[i][1];
+            title += value + ' ' + this.titleMask[0][1];
             break;
         }
-        if (i < this.listPropsItem.length - 1) title += ', '
       }
     }
     document.getElementById(this.idDropdown + 'Title').innerText = title;
-
   }
   setDropdownDefault(option) {
     this.dropdownControl.setDropdownDefault(this.listPropsItem);
     if ('titleDefault' in option) {
+      console.log('titile-default');
       document.getElementById(this.idDropdown + 'Title').innerText = option.titleDefault;
     }
   }

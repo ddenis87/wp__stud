@@ -15,10 +15,11 @@ let roomDropdown = new DropdownProps(
       ['ванная комната','ванные комнаты','ванных комнат'],
     ],
     propsValueDefault: [2,2,0],
-    propsValueLimit: [[1,5],[1,7],[0,2]]
-    // control: false
+    propsValueLimit: [[1,5],[1,7],[0,2]],
+    control: false
   }
 );
+console.log(roomDropdown);
 
 let guestDropdown = new DropdownProps(
   'propsGuest', 
@@ -31,7 +32,11 @@ let guestDropdown = new DropdownProps(
     control: true
   }
 ); // -- class Dropdown(id - dropdown element)
+console.log(guestDropdown);
 
-document.getElementById('getDropdown').addEventListener('click', () => {
+document.getElementById('getDropdownRoom').addEventListener('click', () => {
   console.log(roomDropdown.getValue());
+})
+document.getElementById('getDropdownGuest').addEventListener('click', () => {
+  console.log(guestDropdown.getValue());
 })
