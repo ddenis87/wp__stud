@@ -8,14 +8,9 @@ export default class DropdownPropsItem {
     this.valueLimit = option.propsValueLimit;
 
     document.getElementById(this.idPropsItem).addEventListener('mousedown', () => { event.preventDefault() });
-    document.getElementById(this.idPropsItem).addEventListener('click', () => { this.changeValue(event.target) });
-    
-    this.updateValueForm();
-    this.switchControl();
+    document.getElementById(this.idPropsItem).addEventListener('click', () => { this.changeValue(event.target) });    
   }
   changeValue(target) {
-    // console.log(this.idPropsItem + 'Increment')
-    // console.log(target.id)
     switch(target.id) {
       case this.idPropsItem + 'Increment': this.value++; break;
       case this.idPropsItem + 'Decrement': this.value--; break;
