@@ -20,6 +20,13 @@ html(lang="en")
       button(id='getDropdownRoom') Get value Dropdown
       button(id='getDropdownGuest') Get value Dropdown
     br
+    +dropdown('date',
+      {
+        id: 'propsDate',
+        type: 'date'
+      }
+    )
+    br
     +dropdown('dropdown',
       { 
         id: 'propsRoom',

@@ -3,7 +3,7 @@ import './dropdown.scss';
 export default class Dropdown {
   constructor(idDropdown) {
     this.idDropdown = idDropdown;
-    document.getElementById(idDropdown).addEventListener('blur', () => this.dropdownClose());
+    // document.getElementById(idDropdown).addEventListener('blur', () => this.dropdownClose());
     document.getElementById(idDropdown + 'Button').addEventListener('click', () => this.dropdownSwitch());
   }
   dropdownSwitch() {

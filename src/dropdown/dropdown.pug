@@ -14,4 +14,7 @@ mixin dropdown(dropdownName, option)
           include __item/dropdown-props__item.pug
           each prop in option.props
             +dropdown-props__item(prop)
+        when 'date'
+          include __date/dropdown-date__date.pug
+          +dropdown-date__date()
       +dropdown__control(option.id)

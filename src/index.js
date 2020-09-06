@@ -2,8 +2,12 @@ import './style.scss'
 import './toggle/toggle'
 import './text-field/text-field'
 import DropdownProps from './dropdown/dropdown-props'
-
+import DropdownDate from './dropdown/dropdown-date'
 // console.log('Hello from index.js');
+
+let periodDate = new DropdownDate(
+  'propsDate'
+);
 
 let roomDropdown = new DropdownProps(
   'propsRoom', 
