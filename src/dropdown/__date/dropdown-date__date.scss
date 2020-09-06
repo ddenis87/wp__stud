@@ -1,3 +1,46 @@
 @import './air-date/css/datepicker.css';
-// @import './air-date/css/datepicker.min.css';
 
+.dropdown__slider {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.datepicker {
+  width: auto;
+  max-width: 320px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 0;
+  box-sizing: border-box;
+
+  &--nav {
+    padding-left: 5px;
+    padding-right: 8px;
+    &-title {
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: bold;
+      font-size: 19px;
+      line-height: 24px;
+      letter-spacing: -0.2px;
+      color: #1F2041;
+      i { color: #1F2041; }
+    }
+    &-action {
+      path {
+        fill: #BC9CFF;
+        stroke: none;
+        stroke-width: 1px;
+      }
+      svg {
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+  &--cell {
+    border-radius: 50px;
+  }
+
+}
