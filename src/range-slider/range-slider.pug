@@ -1,0 +1,7 @@
+mixin range-slider(option)
+  .range-slider
+    .slider-head
+      span.slider-head__title= option.title
+      span.slider-head__value ranger slider
+    .slider-body(id= option.id + 'Body')
+      .slider(id= option.id + 'Slider')

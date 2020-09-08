@@ -1,9 +1,17 @@
 import './style.scss'
 import './toggle/toggle'
 import './text-field/text-field'
+
 import DropdownProps from './dropdown/dropdown-props'
 import DropdownDate from './dropdown/dropdown-date'
-// console.log('Hello from index.js');
+import RangeSlider from './range-slider/range-slider'
+
+
+let sumRange = new RangeSlider(
+  {
+    id: 'sumRange'
+  }
+);
 
 let periodDateRange = new DropdownDate(
   'propsDateRange',
