@@ -5,8 +5,20 @@ import DropdownProps from './dropdown/dropdown-props'
 import DropdownDate from './dropdown/dropdown-date'
 // console.log('Hello from index.js');
 
+let periodDateRange = new DropdownDate(
+  'propsDateRange',
+  {
+    titleDefault: 'ДД.ММ. - ДД.ММ.',
+    range: true,
+  }
+);
+
 let periodDate = new DropdownDate(
-  'propsDate'
+  'propsDate',
+  {
+    titleDefault: 'ДД.ММ.ГГГГ',
+    range: false,
+  }
 );
 
 let roomDropdown = new DropdownProps(

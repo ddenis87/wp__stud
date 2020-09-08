@@ -9,11 +9,19 @@ html(lang="en")
     h1 Webpack and pug
     br
     hr
-    +dropdown('date',
+    +dropdown('date dropdown',
+      {
+        id: 'propsDateRange',
+        type: 'date',
+        width: '266px'
+      }
+    )
+    hr
+    +dropdown('date dropdown',
       {
         id: 'propsDate',
         type: 'date',
-        width: '200px'
+        width: '150px'
       }
     )
     hr

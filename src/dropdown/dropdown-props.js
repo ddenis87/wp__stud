@@ -26,7 +26,7 @@ export default class DropdownProps extends Dropdown {
 
     this.dropdownControl = new DropdownControl(idDropdown, this.listPropsItem);
     this.updateTitle();
-    this.setDropdownDefault(option)
+    this.setDropdownDefault(option);
   }
 
   clickSlider(event) {
