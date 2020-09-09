@@ -4,20 +4,184 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- - option = {id, text, isChecked}-->
+    <!-- - option = {id, title, placeholder, type[default: text]}-->
   <link href="style.css" rel="stylesheet"></head>
   <body>
-    <h1>Webpack and pug</h1>
-    <div> 
-          <label class="toggle-label">
-            <input class="toggle-checkbox" type="checkbox" id="specOffer" checked>
-            <div class="toggle-slider">
-              <div class="toggle-circle"></div>
-            </div>Получать спецпредложения
-          </label>
+    <h1>Webpack and pug</h1><br>
+    <hr>
+    <div class="button-box__small">
+          <div class="button-box">
+            <button class="button-box__button button-box__button-fill button-box__button-arrow">click me</button>
+          </div>
     </div>
     <hr>
-    <div>
-          <input class="text-field" id="" placeholder="Email">
+    <div class="slider-box">
+          <div class="slider-bar">
+            <div class="slider-head"><span class="slider-head__title">range slider</span><span class="slider-head__value">5 000&#8381; - 10 000&#8381;</span></div>
+            <div class="slider-body" id="sumRangeBody">
+                      <div class="slider-range slider-range__from" id="sumRangeFrom"></div>
+                      <div class="progress-bar" id="sumRangeProgressBar"></div>
+                      <div class="slider-range slider-range__to" id="sumRangeTo"></div>
+            </div>
+          </div>
     </div>
-  <script src="index.js"></script></body>
+    <hr>
+    <div class="slider-box">
+          <div class="slider-bar">
+            <div class="slider-head"><span class="slider-head__title">slider</span><span class="slider-head__value">5 000&#8381; - 10 000&#8381;</span></div>
+            <div class="slider-body" id="sumSliderBody">
+                      <div class="slider" id="sumSliderSlider"></div>
+                      <div class="progress-bar" id="sumSliderProgressBar"></div>
+            </div>
+          </div>
+    </div>
+    <hr><span class="dropdown__name">date dropdown</span>
+        <div class="dropdown" id="propsDateRange" tabindex="0" style="width: 266px">
+          <div class="dropdown__box" id="propsDateRangeBox"><span class="dropdown__title" id="propsDateRangeTitle"></span>
+            <div class="dropdown__button" id="propsDateRangeButton">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.5938 0.578125L12 1.98438L6 7.98438L0 1.98438L1.40625 0.578125L6 5.17188L10.5938 0.578125Z" fill="#1F2041" fill-opacity="0.75"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="dropdown__slider" id="propsDateRangeSlider">
+                    <div class="datepicker-here" id="propsDateRangeCalendar"></div>
+                <div class="dropdown__control" id="propsDateRangeControl">
+                  <div class="dropdown__control-button dropdown__control-button_clear dropdown__control-button_clear_disabled" id="propsDateRangeClear">Очистить</div>
+                  <div class="dropdown__control-button dropdown__control-button_apply" id="propsDateRangeApply">Применить</div>
+                </div>
+          </div>
+        </div>
+    <hr><span class="dropdown__name">date dropdown</span>
+        <div class="dropdown" id="propsDate" tabindex="0" style="width: 150px">
+          <div class="dropdown__box" id="propsDateBox"><span class="dropdown__title" id="propsDateTitle"></span>
+            <div class="dropdown__button" id="propsDateButton">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.5938 0.578125L12 1.98438L6 7.98438L0 1.98438L1.40625 0.578125L6 5.17188L10.5938 0.578125Z" fill="#1F2041" fill-opacity="0.75"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="dropdown__slider" id="propsDateSlider">
+                    <div class="datepicker-here" id="propsDateCalendar"></div>
+                <div class="dropdown__control" id="propsDateControl">
+                  <div class="dropdown__control-button dropdown__control-button_clear dropdown__control-button_clear_disabled" id="propsDateClear">Очистить</div>
+                  <div class="dropdown__control-button dropdown__control-button_apply" id="propsDateApply">Применить</div>
+                </div>
+          </div>
+        </div>
+    <hr>
+    <div> 
+          <div class="toggle">
+            <label class="toggle__label">
+              <input class="toggle__checkbox" type="checkbox" id="specOffer" checked>
+              <div class="toggle__slider">
+                <div class="toggle__circle"></div>
+              </div>Получать спецпредложения
+            </label>
+          </div>
+          <div class="toggle">
+            <label class="toggle__label">
+              <input class="toggle__checkbox" type="checkbox" id="specOffer-sec">
+              <div class="toggle__slider">
+                <div class="toggle__circle"></div>
+              </div>Получать спецпредложения
+            </label>
+          </div>
+          <div class="toggle">
+            <label class="toggle__label">
+              <input class="toggle__checkbox" type="checkbox">
+              <div class="toggle__slider">
+                <div class="toggle__circle"></div>
+              </div>Получать спецпредложения
+            </label>
+          </div>
+    </div>
+    <hr>
+        <div class="text-field"><span class="text-field__title">Email</span>
+          <input class="text-field__input" type="text" id="email" placeholder="Email">
+        </div><br>
+        <div class="text-field">
+          <input class="text-field__input" type="password" placeholder="Phone">
+        </div>
+    <hr>
+    <div>
+      <button id="getDropdownRoom">Get value Dropdown</button>
+      <button id="getDropdownGuest">Get value Dropdown</button>
+    </div><br><span class="dropdown__name">dropdown</span>
+        <div class="dropdown" id="propsRoom" tabindex="0" style="width: undefined">
+          <div class="dropdown__box" id="propsRoomBox"><span class="dropdown__title" id="propsRoomTitle"></span>
+            <div class="dropdown__button" id="propsRoomButton">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.5938 0.578125L12 1.98438L6 7.98438L0 1.98438L1.40625 0.578125L6 5.17188L10.5938 0.578125Z" fill="#1F2041" fill-opacity="0.75"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="dropdown__slider" id="propsRoomSlider">
+                    <div class="dropdown-props__item" id="bedrooms">
+                      <div class="dropdown-props__title"><span>Спальни</span></div>
+                      <div class="dropdown-props__control">
+                        <button class="control__button" id="bedroomsDecrement">-</button><span class="control__value" id="bedroomsValue">0</span>
+                        <button class="control__button" id="bedroomsIncrement">+</button>
+                      </div>
+                    </div>
+                    <div class="dropdown-props__item" id="beds">
+                      <div class="dropdown-props__title"><span>Кровати</span></div>
+                      <div class="dropdown-props__control">
+                        <button class="control__button" id="bedsDecrement">-</button><span class="control__value" id="bedsValue">0</span>
+                        <button class="control__button" id="bedsIncrement">+</button>
+                      </div>
+                    </div>
+                    <div class="dropdown-props__item" id="bathrooms">
+                      <div class="dropdown-props__title"><span>Ванные комнаты</span></div>
+                      <div class="dropdown-props__control">
+                        <button class="control__button" id="bathroomsDecrement">-</button><span class="control__value" id="bathroomsValue">0</span>
+                        <button class="control__button" id="bathroomsIncrement">+</button>
+                      </div>
+                    </div>
+                <div class="dropdown__control" id="propsRoomControl">
+                  <div class="dropdown__control-button dropdown__control-button_clear dropdown__control-button_clear_disabled" id="propsRoomClear">Очистить</div>
+                  <div class="dropdown__control-button dropdown__control-button_apply" id="propsRoomApply">Применить</div>
+                </div>
+          </div>
+        </div><br>
+    <hr><span class="dropdown__name">Будут ли гости</span>
+        <div class="dropdown" id="propsGuest" tabindex="0" style="width: 400px">
+          <div class="dropdown__box" id="propsGuestBox"><span class="dropdown__title" id="propsGuestTitle"></span>
+            <div class="dropdown__button" id="propsGuestButton">
+              <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.5938 0.578125L12 1.98438L6 7.98438L0 1.98438L1.40625 0.578125L6 5.17188L10.5938 0.578125Z" fill="#1F2041" fill-opacity="0.75"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="dropdown__slider" id="propsGuestSlider">
+                    <div class="dropdown-props__item" id="men">
+                      <div class="dropdown-props__title"><span>Взрослые</span></div>
+                      <div class="dropdown-props__control">
+                        <button class="control__button" id="menDecrement">-</button><span class="control__value" id="menValue">2</span>
+                        <button class="control__button" id="menIncrement">+</button>
+                      </div>
+                    </div>
+                    <div class="dropdown-props__item" id="child">
+                      <div class="dropdown-props__title"><span>Дети</span></div>
+                      <div class="dropdown-props__control">
+                        <button class="control__button" id="childDecrement">-</button><span class="control__value" id="childValue">2</span>
+                        <button class="control__button" id="childIncrement">+</button>
+                      </div>
+                    </div>
+                    <div class="dropdown-props__item" id="mlad">
+                      <div class="dropdown-props__title"><span>Младенцы</span></div>
+                      <div class="dropdown-props__control">
+                        <button class="control__button" id="mladDecrement">-</button><span class="control__value" id="mladValue">0</span>
+                        <button class="control__button" id="mladIncrement">+</button>
+                      </div>
+                    </div>
+                <div class="dropdown__control" id="propsGuestControl">
+                  <div class="dropdown__control-button dropdown__control-button_clear dropdown__control-button_clear_disabled" id="propsGuestClear">Очистить</div>
+                  <div class="dropdown__control-button dropdown__control-button_apply" id="propsGuestApply">Применить</div>
+                </div>
+          </div>
+        </div><br>
+    <hr>
+  <script src="index.js"></script><script src="room.js"></script></body>
 </html>

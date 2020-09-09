@@ -10,10 +10,13 @@ const PATHS = {
 
 module.exports = {
   mode:'development',
-  entry: './src/index.js',
+  entry: {
+    index: './src/index.js',
+    room: './src/room.js'
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js'
+    filename: '[name].js'
   },
   devServer: {
     host: 'localhost',
@@ -38,7 +41,12 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: PATHS.source + '/index.pug'
+      filename: 'index.html',
+      template: PATHS.source + '/index.pug',
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'room.html',
+      template: PATHS.source + '/room.pug',
     }),
     new miniCSS({
       filename: 'style.css'
