@@ -9,21 +9,23 @@ html(lang="en")
     h1 Webpack and pug
     br
     hr
-    +slider-bar( 
-      { 
-        id: 'sumRange',
-        title: 'range',
-        type: 'range'
-      }
-    )
+    .slider-box
+      +slider-bar( 
+        { 
+          id: 'sumRange',
+          title: 'range slider',
+          type: 'range'
+        }
+      )
     hr
-    +slider-bar( 
-      { 
-        id: 'sumSlider',
-        title: 'slider',
-        type: 'slider'
-      }
-    )
+    .slider-box
+      +slider-bar( 
+        { 
+          id: 'sumSlider',
+          title: 'slider',
+          type: 'slider'
+        }
+      )
     hr
     +dropdown('date dropdown',
       {
