@@ -2,6 +2,5 @@ mixin button-box(option)
   - let cl__box = (option.hover && option.hover == true) ? 'button-box button-box-hover' : 'button-box'
   - let cl__btn = (option.fill && option.fill == true) ? 'button-box__button button-box__button-fill': 'button-box__button'
   - if (option.arrow && option.arrow == true) cl__btn += ' button-box__button-arrow'
-  //- - if (option.fill && option.fill == true) {cl__btn = cl__btn + ' button-box__button-fill'}
   div(class= cl__box)
     button(class= cl__btn)= option.title
