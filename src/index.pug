@@ -9,6 +9,15 @@ html(lang="en")
     h1 Webpack and pug
     br
     hr
+    .button-box__small
+      +button-box(
+        {
+          id: 'bt1',
+          title:'click me',
+          hover: false,
+          fill: true,
+        })
+    hr
     .slider-box
       +slider-bar( 
         { 

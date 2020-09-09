@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "dev": "webpack --watch",
-    "serve": "webpack-dev-server"
+    "serve": "webpack-dev-server --browser=Chrome"
   },
   "author": "Dontsov Denis <d.denis87@mail.ru>",
   "license": "ISC",

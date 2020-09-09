@@ -1,6 +1,7 @@
 import './style.scss'
 import './toggle/toggle'
 import './text-field/text-field'
+import './button-box/button-box'
 
 import DropdownProps from './dropdown/dropdown-props'
 import DropdownDate from './dropdown/dropdown-date'
