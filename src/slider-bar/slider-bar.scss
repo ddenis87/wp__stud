@@ -1,5 +1,5 @@
 
-.range-slider {
+.slider-bar {
   margin-left: 100px;
   max-width: 400px;
   .slider-head {
@@ -35,15 +35,5 @@
     border: 1px solid rgba(31, 32, 65, 0.25);
     border-radius: 3px;
     box-sizing: border-box;
-
-    .slider {
-      position: relative;
-      left: 100px;
-      width: 12px;
-      height: 12px;
-      border: 2px solid #FFFFFF;
-      border-radius: 10px;
-      background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
-    }
   }
 }

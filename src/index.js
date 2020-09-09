@@ -4,12 +4,20 @@ import './text-field/text-field'
 
 import DropdownProps from './dropdown/dropdown-props'
 import DropdownDate from './dropdown/dropdown-date'
-import RangeSlider from './range-slider/range-slider'
+import SliderBar from './slider-bar/slider-bar'
 
 
-let sumRange = new RangeSlider(
+let sumRange = new SliderBar(
   {
-    id: 'sumRange'
+    id: 'sumRange',
+    type: 'range'
+  }
+);
+
+let sumSlider = new SliderBar(
+  {
+    id: 'sumSlider',
+    type: 'slider'
   }
 );
 

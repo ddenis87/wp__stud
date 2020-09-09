@@ -9,10 +9,19 @@ html(lang="en")
     h1 Webpack and pug
     br
     hr
-    +range-slider( 
+    +slider-bar( 
       { 
         id: 'sumRange',
-        title: 'range slider'        
+        title: 'range',
+        type: 'range'
+      }
+    )
+    hr
+    +slider-bar( 
+      { 
+        id: 'sumSlider',
+        title: 'slider',
+        type: 'slider'
       }
     )
     hr
